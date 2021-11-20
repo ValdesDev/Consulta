@@ -1,7 +1,7 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("Consulta JS imported successfully!");
+    console.log("consulta JS imported successfully!");
   },
   false
 );
