@@ -27,6 +27,6 @@ const clientSchema = new Schema(
 );
 clientSchema.index({ name: 1, lastName: 1, lastName2: 1 }, { unique: true }); // Los tres campos conjuntos debe ser unica.
 
-const User = model("User", userSchema);
+const Client = model("Client", clientSchema);
 
-module.exports = User;
+module.exports = Client;
