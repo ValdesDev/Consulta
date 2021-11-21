@@ -6,22 +6,6 @@
 
 /*FORM*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-
-*, body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-}
-/* 
-html, body {
-    height: 100%;
-    background-color: #152733;
-    overflow: hidden;
-} */
-
 
 .form-holder {
       display: flex;
@@ -49,7 +33,7 @@ html, body {
 
 .form-content .form-items {
     border: 3px solid rgb(8, 8, 8);
-    background-color: aquamarine;
+    background-color: #dbdbdd;
     padding: 40px;
     display: inline-block;
     width: 100%;
@@ -104,12 +88,6 @@ html, body {
     margin-top: 16px;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
-    background-color: #495056;
-    outline: none !important;
-    border: none !important;
-     box-shadow: none;
-}
 
 .form-content textarea {
     position: static !important;
