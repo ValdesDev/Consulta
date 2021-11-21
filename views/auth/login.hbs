@@ -5,7 +5,11 @@
         <div class="form-items">
           <h3>Iniciar Sesión</h3>
           <p>Completa los campos requeridos</p>
-          <form class="requires-validation" novalidate>
+          <form
+            class="requires-validation"
+            action="auth/login"
+            method="POST"
+          >
 
             <div class="col-md-12">
               <input
@@ -20,17 +24,6 @@
             </div>
 
             <div class="col-md-12">
-              <select class="form-select mt-3" required>
-                <option selected disabled value="">Posición</option>
-                <option value="jweb">Junior Web Developer</option>
-                <option value="sweb">Senior Web Developer</option>
-                <option value="pmanager">Project Manager</option>
-              </select>
-              <div class="valid-feedback">You selected a position!</div>
-              <div class="invalid-feedback">Please select a position!</div>
-            </div>
-
-            <div class="col-md-12">
               <input
                 class="form-control"
                 type="password"
@@ -42,6 +35,17 @@
               <div class="invalid-feedback">Password field cannot be blank!</div>
             </div>
 
+            <div class="col-md-12">
+              <select class="form-select mt-3" required>
+                <option selected disabled value="">Posición</option>
+                <option value="jweb">Junior Web Developer</option>
+                <option value="sweb">Senior Web Developer</option>
+                <option value="pmanager">Project Manager</option>
+              </select>
+              <div class="valid-feedback">You selected a position!</div>
+              <div class="invalid-feedback">Please select a position!</div>
+            </div>
+
             <div class="form-button mt-3">
               <button
                 id="submit"
@@ -50,6 +54,9 @@
               >Register</button>
             </div>
           </form>
+          {{#if errorMsg}}
+            <h3>{{errorMsg}}</h3>
+          {{/if}}
         </div>
       </div>
     </div>
