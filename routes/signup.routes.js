@@ -44,11 +44,12 @@ router.post("/signup", isLoggedOut, async (req, res) => {
       password: hashedPassword,
       email,
       phone,
-      presentation,
+      presentation
     });
+    console.log(createdUser);
     req.session.user = createdUser;
     res.redirect("/psychologist"); //revisar ruta
-    res.render("signup", { justCreatedUser: createdUser.username });
+    
   } catch (err) {
     console.log(err);
     if (error instanceof mongoose.Error.ValidationError) {

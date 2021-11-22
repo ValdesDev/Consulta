@@ -39,14 +39,9 @@ router.post("/login", isLoggedOut, async (req, res) => {
 });
 
 router.post("/logout", isLoggedIn, async (req, res, next) => {
-  res.clearCookie("connect.sid", { path: "/" });//REVISAR
+  res.clearCookie("connect.sid", { path: "/" }); //REVISAR
   try {
-    const error = await req.session.destroy();
-    if (error) {
-      return res
-        .status(500)
-        .render("auth/logout", { errorMessage: err.message });
-    }
+    await req.session.destroy();
     res.redirect("/");
   } catch (err) {
     next(err);

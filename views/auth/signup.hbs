@@ -5,7 +5,7 @@
         <div class="form-items">
           <h3>Registrarse</h3>
           <p>Completa los campos requeridos</p>
-          <form class="requires-validation" novalidate>
+          <form action="/auth/signup" method="POST">
 
             <div class="col-md-12">
               <input
@@ -78,7 +78,7 @@
               <div class="invalid-feedback">Password field cannot be blank!</div>
             </div>
 
-            <div class="col-md-12">
+            {{! <div class="col-md-12">
               <select class="form-select mt-3" required>
                 <option selected disabled value="">Position</option>
                 <option value="jweb">Junior Web Developer</option>
@@ -87,7 +87,7 @@
               </select>
               <div class="valid-feedback">You selected a position!</div>
               <div class="invalid-feedback">Please select a position!</div>
-            </div>
+            </div> }}
 
             <div class="form-button mt-3">
               <button
@@ -102,6 +102,3 @@
     </div>
   </div>
 </div>
-
-
-   
