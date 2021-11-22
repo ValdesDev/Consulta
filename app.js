@@ -36,6 +36,9 @@ app.use("/auth",logIn);
 const psychologist = require("./routes/psychologist.routes");
 app.use("/",psychologist);
 
+const client = require("./routes/client.routes");
+app.use("/",client);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
