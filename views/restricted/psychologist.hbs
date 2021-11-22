@@ -8,23 +8,24 @@
   type="button"
   class="btn btn-primary"
   data-toggle="modal"
-  data-target="#exampleModal"
+  data-target="#createClientModal"
 >
+  <i class="fas fa-user-plus"></i>
   Crear CLiente
 </button>
 
-<!-- Modal -->
+<!-- Modal Create -->
 <div
   class="modal fade"
-  id="exampleModal"
+  id="createClientModal"
   tabindex="-1"
   role="dialog"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="createClientModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="/psychologist" method="POST">
+      <form action="/create-client" method="POST">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Nuevo Cliente</h5>
         </div>
@@ -119,7 +120,7 @@
             type="button"
             class="btn btn-secondary"
             data-dismiss="modal"
-          >Close</button>
+          >Cerrar</button>
 
         </div>
       </form>
@@ -128,10 +129,134 @@
 </div>
 
 <!-- List -->
-<ul>
-  {{#if clients }}
+<ul class="list-group col-2">
+  {{#if clients}}
     {{#each clients}}
-      <li>{{this.name}}</li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-6">{{this.name}}</div>
+          <div class="col-6">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modifyClientModal{{this._id}}"
+            >
+              <i class="fas fa-user-edit"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- Modal Modify -->
+      <div
+        class="modal fade"
+        id="modifyClientModal{{this._id}}"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modifyClienttModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form action="/modify-client/{{this._id}}" method="POST">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar Cliente</h5>
+              </div>
+              <div class="modal-body">
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    placeholder="Nombre"
+                    value={{this.name}}
+                    required
+                  />
+                  <div class="valid-feedback">Username field is valid!</div>
+                  <div class="invalid-feedback">Username field cannot be blank!</div>
+                </div>
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="lastName"
+                    placeholder="Apellido"
+                    required
+                    value={{this.lastName}}
+                  />
+                  <div class="valid-feedback">Username field is valid!</div>
+                  <div class="invalid-feedback">Username field cannot be blank!</div>
+                </div>
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="lastName2"
+                    placeholder="Segundo Apellido (no obligatorio)"
+                    value={{this.lastName2}}
+                  />
+                  <div class="valid-feedback">Username field is valid!</div>
+                  <div class="invalid-feedback">Username field cannot be blank!</div>
+                </div>
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="age"
+                    placeholder="Edad"
+                    value={{this.age}}
+                  />
+                  <div class="valid-feedback">Username field is valid!</div>
+                  <div class="invalid-feedback">Username field cannot be blank!</div>
+                </div>
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    placeholder="Dirección de E-mail"
+                    required
+                    value={{this.email}}
+                  />
+                  <div class="valid-feedback">Email field is valid!</div>
+                  <div class="invalid-feedback">Email field cannot be blank!</div>
+                </div>
+
+                <div class="col-md-12">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="phone"
+                    placeholder="Teléfono"
+                    required
+                    value={{this.phone}}
+                  />
+                  <div class="valid-feedback">Password field is valid!</div>
+                  <div class="invalid-feedback">Password field cannot be blank!</div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button
+                  id="submit"
+                  type="submit"
+                  class="btn btn-primary"
+                >Modificar</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >Cerrar</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     {{/each}}
   {{else}}
     <p>No hay clientes registrados</p>

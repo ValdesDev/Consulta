@@ -4,7 +4,7 @@ const Psychologist = require("../models/Psychologist.model");
 const Client = require("../models/Client.model");
 
 /* Create new Client */
-router.post("/psychologist", async (req, res, next) => {
+router.post("/create-client/:id", async (req, res, next) => {
   const { name, lastName, lastName2, age, email, phone } = req.body;
   try {
     const user = req.session.user;
@@ -32,5 +32,21 @@ router.post("/psychologist", async (req, res, next) => {
     console.log(err);
   }
 });
+
+
+
+/* Modify Client */
+
+router.post("/modify-client/:id", async (req, res, next) => {
+  try{
+    await Client.findByIdAndUpdate(req.params.id,req.body);
+    res.redirect("/psychologist");
+  }catch (err) {
+    console.log("err", err);
+  }
+});
+
+
+/*Delete CLient*/
 
 module.exports = router;
