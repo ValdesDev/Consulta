@@ -1,0 +1,112 @@
+<div
+  class="modal fade"
+  id="createClientModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="createClientModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="/create-client/:id" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Cliente</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              required
+            />
+            <div class="valid-feedback">Username field is valid!</div>
+            <div class="invalid-feedback">Username field cannot be blank!</div>
+          </div>
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="lastName"
+              placeholder="Apellido"
+              required
+            />
+            <div class="valid-feedback">Username field is valid!</div>
+            <div class="invalid-feedback">Username field cannot be blank!</div>
+          </div>
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="lastName2"
+              placeholder="Segundo Apellido (no obligatorio)"
+            />
+            <div class="valid-feedback">Username field is valid!</div>
+            <div class="invalid-feedback">Username field cannot be blank!</div>
+          </div>
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="number"
+              name="age"
+              placeholder="Edad"
+            />
+            <div class="valid-feedback">Username field is valid!</div>
+            <div class="invalid-feedback">Username field cannot be blank!</div>
+          </div>
+
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              placeholder="Dirección de E-mail"
+              required
+            />
+            <div class="valid-feedback">Email field is valid!</div>
+            <div class="invalid-feedback">Email field cannot be blank!</div>
+          </div>
+
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="phone"
+              placeholder="Teléfono"
+              required
+            />
+            <div class="valid-feedback">Password field is valid!</div>
+            <div class="invalid-feedback">Password field cannot be blank!</div>
+          </div>
+
+          {{! <div class="col-md-12">
+              <select class="form-select mt-3" required>
+                <option selected disabled value="">Position</option>
+                <option value="jweb">Junior Web Developer</option>
+                <option value="sweb">Senior Web Developer</option>
+                <option value="pmanager">Project Manager</option>
+              </select>
+              <div class="valid-feedback">You selected a position!</div>
+              <div class="invalid-feedback">Please select a position!</div>
+            </div> }}
+
+        </div>
+        <div class="modal-footer">
+          <button
+            id="submit"
+            type="submit"
+            class="btn btn-primary"
+          >Añadir</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Cerrar</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
