@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const Psychologist = require("../models/Psychologist.model");
-const Client = require("../models/Client.model");
+const Client = require("/../models/Client.model");
 
 /* Create new Client */
 router.post("/create-client/:id", async (req, res, next) => {
@@ -48,5 +48,14 @@ router.post("/modify-client/:id", async (req, res, next) => {
 
 
 /*Delete CLient*/
+
+router.post("/delete-client/:id", async (req, res, next) => {
+  try {
+    await Client.findByIdAndRemove(req.params.id);
+    res.redirect("/psychologist");
+  } catch (err) {
+    console.log("err", err);
+  }
+});
 
 module.exports = router;
