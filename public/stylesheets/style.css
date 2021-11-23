@@ -128,3 +128,10 @@ form {
 .valid-feedback{
    color: #2acc80;
 }
+
+/* MODALS */
+
+.delete-dialog svg {
+font-size: 4em;
+color: #dc3545;
+}

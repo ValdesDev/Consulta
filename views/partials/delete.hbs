@@ -6,7 +6,7 @@
   aria-labelledby="deleteClienttModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog delete-dialog" role="document">
     <div class="modal-content">
       <form action="/delete-client/{{this._id}}" method="POST">
         <div class="modal-header">
@@ -15,8 +15,8 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <h3>{{this.name}} {{this.lastName}}</h3>
-            <i class="far fa-times-circle"></i>
+            <h3 class="col-12 text-center">{{this.name}} {{this.lastName}}</h3>
+            <div class="col-12 text-center"> <i class="far fa-times-circle"></i></div>
           </div>
 
         </div>
