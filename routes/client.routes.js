@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const Psychologist = require("../models/Psychologist.model");
-const Client = require("/../models/Client.model");
+const Client = require("../models/Client.model");
 
 /* Create new Client */
 router.post("/create-client/:id", async (req, res, next) => {
