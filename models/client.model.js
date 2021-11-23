@@ -25,7 +25,7 @@ const clientSchema = new Schema(
     timestamps: true,
   }
 );
-clientSchema.index({ name: 1, lastName: 1, lastName2: 1 }, { unique: true }); // Los tres campos conjuntos debe ser unica.
+// clientSchema.index({ name: 1, lastName: 1, lastName2: 1 }, { unique: true });  Los tres campos conjuntos debe ser unica.
 
 const Client = model("Client", clientSchema);
 
