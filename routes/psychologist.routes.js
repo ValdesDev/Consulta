@@ -18,4 +18,11 @@ router.get("/psychologist", isLoggedIn, async (req, res) => {
   res.render("restricted/psychologist",{activeClients,name});
 });
 
+router.get("/psychologist/archive", isLoggedIn, async (req, res) => {
+  const user = req.session.user;
+  const loggedPsychologist = await Psychologist.findById(user._id).populate("clients");
+  const{clients,name} = loggedPsychologist;
+  res.render("restricted/full-list",{clients,name});
+});
+
 module.exports = router;

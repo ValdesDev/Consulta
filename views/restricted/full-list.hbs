@@ -1,0 +1,199 @@
+<div class="container pt-3">
+  <h2>Archivo de clientes de {{this.name}}</h2>
+
+  <div class="row">
+    {{#if clients}}
+      {{#each clients}}
+        <div class="card col-5 m-3">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}} {{this.lastName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              {{#if this.active}} Activo {{else}} Inactivo {{/if}}</h6>
+            <p class="card-text">
+              <ul>
+                <li><b>Edad: </b>{{this.age}}</li>
+                <li><b>Email: </b>{{this.email}}</li>
+                <li><b>Teléfono: </b>{{this.phone}}</li>
+              </ul>
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modifyClientModal{{this._id}}"
+            >
+              <i class="fas fa-user-edit"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#deleteClientModal{{this._id}}"
+            >
+              <i class="fas fa-user-times"></i>
+            </button>
+            <!-- Modal Modify -->
+            <div
+              class="modal fade"
+              id="modifyClientModal{{this._id}}"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="modifyClienttModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <form action="/modify-client/{{this._id}}" method="POST">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modificar
+                        Cliente</h5>
+                    </div>
+                    <div class="modal-body">
+
+                      <div class="col-md-12">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="name"
+                          placeholder="Nombre"
+                          value={{this.name}}
+                          required
+                        />
+                        <div class="valid-feedback">Username field is valid!</div>
+                        <div class="invalid-feedback">Username field cannot be
+                          blank!</div>
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="lastName"
+                          placeholder="Apellido"
+                          required
+                          value={{this.lastName}}
+                        />
+                        <div class="valid-feedback">Username field is valid!</div>
+                        <div class="invalid-feedback">Username field cannot be
+                          blank!</div>
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="lastName2"
+                          placeholder="Segundo Apellido (no obligatorio)"
+                          value={{this.lastName2}}
+                        />
+                        <div class="valid-feedback">Username field is valid!</div>
+                        <div class="invalid-feedback">Username field cannot be
+                          blank!</div>
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          class="form-control"
+                          type="number"
+                          name="age"
+                          placeholder="Edad"
+                          value={{this.age}}
+                        />
+                        <div class="valid-feedback">Username field is valid!</div>
+                        <div class="invalid-feedback">Username field cannot be
+                          blank!</div>
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          class="form-control"
+                          type="email"
+                          name="email"
+                          placeholder="Dirección de E-mail"
+                          required
+                          value={{this.email}}
+                        />
+                        <div class="valid-feedback">Email field is valid!</div>
+                        <div class="invalid-feedback">Email field cannot be
+                          blank!</div>
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="phone"
+                          placeholder="Teléfono"
+                          required
+                          value={{this.phone}}
+                        />
+                        <div class="valid-feedback">Password field is valid!</div>
+                        <div class="invalid-feedback">Password field cannot be
+                          blank!</div>
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        id="submit"
+                        type="submit"
+                        class="btn btn-primary"
+                      >Modificar</button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >Cerrar</button>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal Delete  -->
+            <div
+              class="modal fade"
+              id="deleteClientModal{{this._id}}"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="deleteClienttModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <form action="/delete-client/{{this._id}}" method="POST">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">¿Seguro qué
+                        quieres borrar este usuario?</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <h3>{{this.name}} {{this.lastName}}</h3>
+                        <i class="far fa-times-circle"></i>
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        id="submit"
+                        type="submit"
+                        class="btn btn-primary"
+                      >Borrar</button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >Cerrar</button>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No hay clientes registrados</p>
+    {{/if}}
+
+  </div>
+
+</div>
