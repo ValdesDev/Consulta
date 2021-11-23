@@ -1,0 +1,36 @@
+<div class="card col-4 m-3">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}} {{this.lastName}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      {{#if this.active}} Activo {{else}} Inactivo {{/if}}</h6>
+    <p class="card-text">
+      <ul>
+        <li><b>Edad: </b>{{this.age}}</li>
+        <li><b>Email: </b><a
+            href="mailto:{{this.email}}"
+          >{{this.email}}</a></li>
+        <li><b>Teléfono: </b><a
+            href="tel:{{this.phone}}"
+          >{{this.phone}}</a></li>
+      </ul>
+    </p>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#modifyClientModal{{this._id}}"
+    >
+      <i class="fas fa-user-edit"></i>
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#deleteClientModal{{this._id}}"
+    >
+      <i class="fas fa-user-times"></i>
+    </button>
+
+  </div>
+
+</div>

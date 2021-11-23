@@ -5,7 +5,9 @@
 }
 
 /*FORM*/
-
+form {
+    margin-bottom:0;
+}
 
 .form-holder {
       display: flex;
