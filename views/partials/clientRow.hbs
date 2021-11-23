@@ -1,6 +1,18 @@
 <div class="row">
-  <div class="col-6">{{this.name}} {{this.lastName}}</div>
-  <div class="col-3">
+  <div class="header">
+    <a
+      class="no-link"
+      data-toggle="collapse"
+      href="#collapseClient{{this._id}}"
+      role="button"
+      aria-expanded="false"
+      aria-controls="collapseClient{{this._id}}"
+    >
+      {{this.name}}
+      {{this.lastName}}
+    </a></div>
+
+  <div class="collapse" id="collapseClient{{this._id}}">
     <button
       type="button"
       class="btn btn-primary"
@@ -9,8 +21,6 @@
     >
       <i class="fas fa-user-edit"></i>
     </button>
-  </div>
-  <div class="col-3">
     <button
       type="button"
       class="btn btn-primary"

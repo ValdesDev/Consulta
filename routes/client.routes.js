@@ -33,19 +33,30 @@ router.post("/create-client/:id", async (req, res, next) => {
   }
 });
 
-
-
 /* Modify Client */
 
 router.post("/modify-client/:id", async (req, res, next) => {
-  try{
-    await Client.findByIdAndUpdate(req.params.id,req.body);
+  try {
+    await Client.findByIdAndUpdate(req.params.id, req.body);
     res.redirect("/psychologist");
-  }catch (err) {
+  } catch (err) {
     console.log("err", err);
   }
 });
 
+/* Active-Unactive Client */
+
+router.get("/toggle-client/:id/:current", async (req, res, next) => {
+  const status = req.params.current;
+  const newStatus = !(status === 'true');
+  try {
+    await Client.findByIdAndUpdate(req.params.id, { active: newStatus });
+    res.redirect("/psychologist/archive");
+  } catch (err) {
+    console.log("err", err);
+  }
+
+});
 
 /*Delete CLient*/
 

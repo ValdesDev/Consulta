@@ -1,10 +1,30 @@
 <div class="card col-4 m-3">
   <div class="card-body">
-    <h5 class="card-title">{{this.name}} {{this.lastName}}</h5>
+    <div class="row">
+      <h5 class="card-title col-8">{{this.name}} {{this.lastName}}</h5>
+      <div class="col-4 text-end">
+        <a href="/toggle-client/{{this._id}}/{{this.active}}">
+          <button type="button" class="btn btn-outline-info btn-sm">
+            {{#if this.active}}
+              Desactivar
+            {{else}}
+              Activar
+            {{/if}}
+          </button>
+        </a>
+      </div>
+
+    </div>
     <h6 class="card-subtitle mb-2 text-muted">
-      {{#if this.active}} Activo {{else}} Inactivo {{/if}}</h6>
+      {{#if this.active}}
+        Activo
+      {{else}}
+        Inactivo
+      {{/if}}
+    </h6>
+
     <p class="card-text">
-      <ul>
+      <ul class="mb-4">
         <li><b>Edad: </b>{{this.age}}</li>
         <li><b>Email: </b><a
             href="mailto:{{this.email}}"

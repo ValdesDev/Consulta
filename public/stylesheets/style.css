@@ -4,9 +4,18 @@
     z-index: 0;
 }
 
+.no-link {
+    color:inherit;
+    text-decoration: none;
+}
+
 /*FORM*/
 form {
     margin-bottom:0;
+}
+
+form input{
+    margin-bottom:16px;
 }
 
 .form-holder {
