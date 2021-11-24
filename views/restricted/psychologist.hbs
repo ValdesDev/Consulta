@@ -1,34 +1,36 @@
 <div class="container pt-5">
 
-  <div class="row">
+<div class="row psico-nav">
 
-    <h2 class="col-8">{{this.name}}</h2>
+  <h2 class="col-md-7">{{this.name}}</h2>
 
-    <div class="col-4">
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#createClientModal" >
-        <i class="fas fa-user-plus"></i>
-        Crear CLiente
+  <div class="col-md-5">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#createClientModal"
+    >
+      <i class="fas fa-user-plus"></i>
+      Crear CLiente
+    </button>
+    <a href="/psychologist/archive" class="d-inline-block">
+      <button type="button" class="btn btn-primary">Archivo
       </button>
-      <a href="/psychologist/archive" class="d-inline-block">
-        <button type="button" class="btn btn-primary">Lista completa
-        </button>
-      </a>
+    </a>
 
-      <form action="/auth/logout" method="POST" class="d-inline-block">
-        <button id="submit" type="submit" class="btn btn-primary">Log out</button>
-      </form>
-    </div>
-
+    <form action="/auth/logout" method="POST" class="d-inline-block">
+      <button id="submit" type="submit" class="btn btn-secondary">Cerrar Sesión</button>
+    </form>
   </div>
+
+</div>
+
   <!-- Modal Create -->
   {{#> create }} 
   {{/create}}
 
-  <ul class="list-group col-3">
+  <ul class="list-group col-md-3 col-8 mt-3 mt-md-0">
     {{#if activeClients}}
       {{#each activeClients}}
         <li class="list-group-item">
@@ -40,9 +42,9 @@
         {{#> modify this}}
         {{/modify}}
 
-        <!-- Modal Delete  -->
-        {{#> delete this}}
-        {{/delete}}
+        <!-- Modal Deactivate  -->
+        {{#> deactivate this}}
+        {{/deactivate}}
       {{/each}}
     {{else}}
       <p>No hay clientes registrados</p>

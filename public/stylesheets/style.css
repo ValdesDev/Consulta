@@ -144,3 +144,8 @@ form input{
 font-size: 4em;
 color: #dc3545;
 }
+
+.deactivate-dialog svg {
+    font-size: 4em;
+    color: #0dcaf0;
+    }

@@ -58,6 +58,16 @@ router.get("/toggle-client/:id/:current", async (req, res, next) => {
 
 });
 
+router.get("/deactivate-client/:id/", async (req, res, next) => {
+  try {
+    await Client.findByIdAndUpdate(req.params.id, { active: false });
+    res.redirect("/psychologist");
+  } catch (err) {
+    console.log("err", err);
+  }
+
+});
+
 /*Delete CLient*/
 
 router.post("/delete-client/:id", async (req, res, next) => {
