@@ -35,4 +35,7 @@ router.post("/create-appointment/:id", isLoggedIn, async (req, res, next) => {
   }
 });
 
+/* Delete Appointment */
+
+
 module.exports = router;

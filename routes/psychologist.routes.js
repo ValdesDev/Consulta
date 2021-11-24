@@ -14,7 +14,13 @@ router.get("/psychologist", isLoggedIn, async (req, res) => {
   const user = req.session.user;
   const loggedPsychologist = await Psychologist.findById(user._id)
     .populate("clients")
-    .populate("appointments");
+    .populate({
+      path: "appointments",
+      populate: {
+        path: "client",
+        model: "Client",
+      },
+    });
   const { clients, appointments, name } = loggedPsychologist;
   const activeClients = clients.filter((client) => client.active);
   res.render("restricted/psychologist", {

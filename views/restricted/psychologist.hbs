@@ -66,6 +66,8 @@
 
     const events = databaseEvents.map(event=>{
       return {
+        id:event._id,
+        client:event.client,
         startDate:event.date,
         endDate:event.date,
         summary:event.summary
