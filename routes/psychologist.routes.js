@@ -12,10 +12,10 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/psychologist", isLoggedIn, async (req, res) => {
   const user = req.session.user;
-  const loggedPsychologist = await Psychologist.findById(user._id).populate("clients");
-  const{clients,name} = loggedPsychologist;
+  const loggedPsychologist = await Psychologist.findById(user._id).populate("clients").populate("appointments");
+  const{clients,appointments,name} = loggedPsychologist;
   const activeClients = clients.filter(client => client.active);
-  res.render("restricted/psychologist",{activeClients,name});
+  res.render("restricted/psychologist",{activeClients,appointments,name});
 });
 
 router.get("/psychologist/archive", isLoggedIn, async (req, res) => {

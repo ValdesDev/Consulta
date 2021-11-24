@@ -54,18 +54,19 @@
 
 <script>
   window.addEventListener('DOMContentLoaded', event => {
-    var events = [{
+   /* var events = [{
         startDate: new Date(),
         endDate:new Date(),
         summary: "cita presencial"
     }]
-    // var events = {{this.events}}
+    */
+    var events =[{{{this.appointments}}}] 
 
     $("#container").simpleCalendar({
         //Defaults options below
         //string of months starting from january
         months: ['january','february','march','april','may','june','july','august','september','october','noviembre','december'],
-        days: ['domingo','lunes','martes','miercoles','thursday','friday','saturday'],
+        days: ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'],
         displayYear: true,              // Display year in header
         fixedStartDay: true,            // Week begin always by monday or by day set by number 0 = sunday, 7 = saturday, false = month always begin by first day of the month
         displayEvent: true,             // Display existing event

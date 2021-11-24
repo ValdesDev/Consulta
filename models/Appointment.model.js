@@ -7,7 +7,7 @@ const appointmentSchema = new Schema(
       required: true,
     },
     summary: { type: String },
-    client: [{ type: Schema.Types.ObjectId, ref: "Client" }],
+    client: { type: Schema.Types.ObjectId, ref: "Client" }
   },
   {
     timestamps: true,
