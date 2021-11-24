@@ -11,8 +11,8 @@ router.post("/create-appointment/:id", isLoggedIn, async (req, res, next) => {
   const { date, time, summary } = req.body;
   const splitTime = time.split(":");
   const fullTime = new Date(date);
-  fullTime.setUTCHours(splitTime[0]);
-  fullTime.setUTCMinutes(splitTime[1]);
+  fullTime.setHours(splitTime[0]);
+  fullTime.setMinutes(splitTime[1]);
   try {
     const user = req.session.user;
     const client = req.params.id;

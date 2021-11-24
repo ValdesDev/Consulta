@@ -12,16 +12,24 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/psychologist", isLoggedIn, async (req, res) => {
   const user = req.session.user;
-  const loggedPsychologist = await Psychologist.findById(user._id).populate("clients").populate("appointments");
-  const{clients,appointments,name} = loggedPsychologist;
-  const activeClients = clients.filter(client => client.active);
-  res.render("restricted/psychologist",{activeClients,appointments,name});
+  const loggedPsychologist = await Psychologist.findById(user._id)
+    .populate("clients")
+    .populate("appointments");
+  const { clients, appointments, name } = loggedPsychologist;
+  const activeClients = clients.filter((client) => client.active);
+  res.render("restricted/psychologist", {
+    activeClients,
+    appointments: encodeURIComponent(JSON.stringify(appointments)),
+    name,
+  });
 });
 
 router.get("/psychologist/archive", isLoggedIn, async (req, res) => {
   const user = req.session.user;
-  const loggedPsychologist = await Psychologist.findById(user._id).populate("clients");
-  res.render("restricted/full-list",loggedPsychologist);
+  const loggedPsychologist = await Psychologist.findById(user._id).populate(
+    "clients"
+  );
+  res.render("restricted/full-list", loggedPsychologist);
 });
 
 /* Modify Psy */
@@ -39,7 +47,7 @@ router.post("/modify-psychologist", async (req, res, next) => {
 /* Delete Psy */
 
 router.get("/delete-psychologist", async (req, res, next) => {
-const user = req.session.user;
+  const user = req.session.user;
   try {
     await Psychologist.findByIdAndRemove(user._id);
     res.clearCookie("connect.sid", { path: "/" }); //REVISAR

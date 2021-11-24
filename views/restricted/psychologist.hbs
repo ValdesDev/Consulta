@@ -60,7 +60,17 @@
         summary: "cita presencial"
     }]
     */
-    var events =[{{{this.appointments}}}] 
+    var decodedJson = decodeURIComponent("{{{this.appointments}}}");
+    var databaseEvents =JSON.parse(decodedJson);
+    console.log(databaseEvents);
+
+    const events = databaseEvents.map(event=>{
+      return {
+        startDate:event.date,
+        endDate:event.date,
+        summary:event.summary
+      }
+    });
 
     $("#container").simpleCalendar({
         //Defaults options below
