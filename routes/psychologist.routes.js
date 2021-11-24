@@ -50,7 +50,4 @@ const user = req.session.user;
   }
 });
 
-
-
-
 module.exports = router;
