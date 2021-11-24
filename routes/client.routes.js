@@ -24,7 +24,7 @@ router.post("/create-client/:id", async (req, res, next) => {
         { new: true }
       );
 
-      res.redirect("/psychologist");
+      res.redirect("/psychologist/archive");
     } else {
       res.redirect("/auth/login");
     }

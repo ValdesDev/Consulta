@@ -20,14 +20,14 @@ router.post("/login", isLoggedOut, async (req, res) => {
   try {
     const psychologistFromDB = await Psychologist.findOne({ email });
     if (!psychologistFromDB) {
-      res.render("auth/login", { errorMsg: "The user does not exist" });
+      res.render("auth/login", { errorMsg: "El usuario no existe" });
     } else {
       const passwordsMatch = await bcrypt.compare(
         password,
         psychologistFromDB.password
       );
       if (!passwordsMatch) {
-        res.render("auth/login", { errorMsg: "Incorrect password" });
+        res.render("auth/login", { errorMsg: "Contraseña Incorrecta" });
       } else {
         req.session.user = psychologistFromDB;
         res.redirect("/psychologist");

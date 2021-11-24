@@ -21,8 +21,22 @@ router.get("/psychologist", isLoggedIn, async (req, res) => {
 router.get("/psychologist/archive", isLoggedIn, async (req, res) => {
   const user = req.session.user;
   const loggedPsychologist = await Psychologist.findById(user._id).populate("clients");
-  const{clients,name} = loggedPsychologist;
-  res.render("restricted/full-list",{clients,name});
+  res.render("restricted/full-list",loggedPsychologist);
 });
+
+/* Modify Psi */
+
+router.post("/modify-psychologist", async (req, res, next) => {
+  const user = req.session.user;
+  try {
+    await Psychologist.findByIdAndUpdate(user._id, req.body);
+    res.redirect("/psychologist/archive");
+  } catch (err) {
+    console.log("err", err);
+  }
+});
+
+
+
 
 module.exports = router;

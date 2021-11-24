@@ -2,33 +2,56 @@
   
   <div class="row psico-nav">
 
-  <h2 class="col-md-7">Archivo de {{this.name}}</h2>
+    <h2 class="col-md-7">Archivo de {{this.name}}</h2>
 
-  <div class="col-md-5">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#createClientModal"
-    >
-      <i class="fas fa-user-plus"></i>
-      Crear CLiente
-    </button>
-    <a href="/psychologist" class="d-inline-block">
-      <button type="button" class="btn btn-primary">Volver
+    
+
+    <div class="col-md-5">
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#modifyPsyModal"
+      >
+        <i class="fas fa-edit"></i>
+        Modificar Psy
       </button>
-    </a>
 
-    <form action="/auth/logout" method="POST" class="d-inline-block">
-      <button id="submit" type="submit" class="btn btn-secondary">Cerrar Sesión</button>
-    </form>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#createClientModal"
+      >
+        <i class="fas fa-user-plus"></i>
+        Crear Cliente
+      </button>
+      <a href="/psychologist" class="d-inline-block">
+        <button type="button" class="btn btn-primary">Volver
+        </button>
+      </a>
+
+      <form action="/auth/logout" method="POST" class="d-inline-block">
+        <button id="submit" type="submit" class="btn btn-secondary">Cerrar Sesión</button>
+      </form>
+
+    </div>
+
   </div>
 
-  </div>
+  <!-- Modal Create -->
+  {{#> create }} 
+  {{/create}}
 
+  <!-- Modal Modify Psi -->
+  {{#> modifyPsy}}
+  {{/modifyPsy}}
+
+  <!--CLient Cards -->
   <div class="row">
-    {{#if clients}}
-      {{#each clients}}
+    {{#if this.clients}}
+      {{#each this.clients}}
 
         {{#> clientCard this}}
         {{/clientCard}}

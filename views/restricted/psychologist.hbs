@@ -5,15 +5,7 @@
   <h2 class="col-md-7">{{this.name}}</h2>
 
   <div class="col-md-5">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#createClientModal"
-    >
-      <i class="fas fa-user-plus"></i>
-      Crear CLiente
-    </button>
+    
     <a href="/psychologist/archive" class="d-inline-block">
       <button type="button" class="btn btn-primary">Archivo
       </button>
@@ -25,10 +17,6 @@
   </div>
 
 </div>
-
-  <!-- Modal Create -->
-  {{#> create }} 
-  {{/create}}
 
   <ul class="list-group col-md-3 col-8 mt-3 mt-md-0">
     {{#if activeClients}}
