@@ -10,6 +10,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 router.post("/create-appointment/:id", isLoggedIn, async (req, res, next) => {
   const { date, time, summary } = req.body;
   const splitTime = time.split(":");
+  process.env.TZ = "Europe/Madrid";
   const fullTime = new Date(date);
   fullTime.setHours(splitTime[0]);
   fullTime.setMinutes(splitTime[1]);
