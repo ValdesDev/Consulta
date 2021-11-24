@@ -20,13 +20,18 @@
 </div>
 <div class="row pt-4"> 
   <div class="col-md-6">
-    <ul class="list-group col-md-6 col-8 mt-3 mt-md-0">
+    <ul class="list-group col-md-7 col-8 mt-3 mt-md-0">
     {{#if activeClients}}
       {{#each activeClients}}
         <li class="list-group-item">
           {{#> clientRow this}}
           {{/clientRow}}
         </li>
+
+        <!-- Modal Appointment -->
+        {{#> appointment this}}
+        {{/appointment}}
+
 
         <!-- Modal Modify -->
         {{#> modify this}}
@@ -42,7 +47,7 @@
     </ul>
   </div>
   
-  <div class="col-md-6" id="container">
+  <div class="col-md-5" id="container">
 
   </div>
 </div>

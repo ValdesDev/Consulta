@@ -1,0 +1,48 @@
+<div
+  class="modal fade"
+  id="appointmenttModal{{this._id}}"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="appointmenttModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="/create-appointment/{{this._id}}" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cita</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="col-md-12">
+            <input class="form-control" type="date" name="date" required />
+          </div>
+          <div class="col-md-12">
+            <input class="form-control" type="time" name="time" required />
+          </div>
+          <div class="col-md-12">
+            <input
+              class="form-control"
+              type="text"
+              name="summary"
+              placeholder="Resumen"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            id="submit"
+            type="submit"
+            class="btn btn-primary"
+          >Añadir</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Cerrar</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ const psychologistSchema = new Schema(
     },
     presentation: { type: String },
     clients: [{ type: Schema.Types.ObjectId, ref: "Client" }],
+    appointments: [{ type: Schema.Types.ObjectId, ref: "Appointment" }]
   },
   {
     timestamps: true,
