@@ -24,13 +24,27 @@ router.get("/psychologist/archive", isLoggedIn, async (req, res) => {
   res.render("restricted/full-list",loggedPsychologist);
 });
 
-/* Modify Psi */
+/* Modify Psy */
 
 router.post("/modify-psychologist", async (req, res, next) => {
   const user = req.session.user;
   try {
     await Psychologist.findByIdAndUpdate(user._id, req.body);
     res.redirect("/psychologist/archive");
+  } catch (err) {
+    console.log("err", err);
+  }
+});
+
+/* Delete Psy */
+
+router.get("/delete-psychologist", async (req, res, next) => {
+const user = req.session.user;
+  try {
+    await Psychologist.findByIdAndRemove(user._id);
+    res.clearCookie("connect.sid", { path: "/" }); //REVISAR
+    await req.session.destroy();
+    res.redirect("/");
   } catch (err) {
     console.log("err", err);
   }

@@ -1,3 +1,4 @@
+
 <div class="container pt-5">
 
 <div class="row psico-nav">
@@ -17,8 +18,9 @@
   </div>
 
 </div>
-
-  <ul class="list-group col-md-3 col-8 mt-3 mt-md-0">
+<div class="row pt-4"> 
+  <div class="col-md-6">
+    <ul class="list-group col-md-6 col-8 mt-3 mt-md-0">
     {{#if activeClients}}
       {{#each activeClients}}
         <li class="list-group-item">
@@ -37,6 +39,43 @@
     {{else}}
       <p>No hay clientes registrados</p>
     {{/if}}
-  </ul>
+    </ul>
+  </div>
+  
+  <div class="col-md-6" id="container">
+
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    var events = [{
+        startDate: new Date(),
+        endDate:new Date(),
+        summary: "cita presencial"
+    }]
+    // var events = {{this.events}}
+
+    $("#container").simpleCalendar({
+        //Defaults options below
+        //string of months starting from january
+        months: ['january','february','march','april','may','june','july','august','september','october','noviembre','december'],
+        days: ['sunday','lunes','tuesday','wednesday','thursday','friday','saturday'],
+        displayYear: true,              // Display year in header
+        fixedStartDay: true,            // Week begin always by monday or by day set by number 0 = sunday, 7 = saturday, false = month always begin by first day of the month
+        displayEvent: true,             // Display existing event
+        disableEventDetails: false, // disable showing event details
+        disableEmptyDetails: false, // disable showing empty date details
+        events: events,                     // List of events
+        onInit: function (calendar) {}, // Callback after first initialization
+        onMonthChange: function (month, year) {}, // Callback on month change
+        onDateSelect: function (date, events) {}, // Callback on date selection
+        onEventSelect: function() {}, // Callback on event selection - use $(this).data('event') to access the event
+        onEventCreate: function( $el ) {},          // Callback fired when an HTML event is created - see $(this).data('event')
+        onDayCreate:   function( $el, d, m, y ) {}  // Callback fired when an HTML day is created   - see $(this).data('today'), .data('todayEvents')
+    });
+  });
+
+</script>
 
 </div>

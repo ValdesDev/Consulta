@@ -1,0 +1,40 @@
+<div
+  class="modal fade"
+  id="deletePsyModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deletePsyModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog delete-dialog" role="document">
+    <div class="modal-content">
+      <form action="delete-psychologist" method="GET">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¿Seguro qué quieres
+            borrar tu usuario?</h5>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <h3 class="col-12 text-center">{{this.name}} </h3>
+            <div class="col-12 text-center">
+              <i class="far fa-times-circle"></i></div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button
+            id="submit"
+            type="submit"
+            class="btn btn-danger"
+          >Borrar</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Cerrar</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

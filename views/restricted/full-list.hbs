@@ -15,7 +15,15 @@
         data-target="#modifyPsyModal"
       >
         <i class="fas fa-edit"></i>
-        Modificar Psy
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#deletePsyModal"
+      >
+        <i class="fas fa-times"></i>
       </button>
 
       <button
@@ -44,9 +52,13 @@
   {{#> create }} 
   {{/create}}
 
-  <!-- Modal Modify Psi -->
+  <!-- Modal Modify Psy -->
   {{#> modifyPsy}}
   {{/modifyPsy}}
+
+  <!-- Modal Delete Psy -->
+  {{#> deletePsy}}
+  {{/deletePsy}}
 
   <!--CLient Cards -->
   <div class="row">
