@@ -38,4 +38,13 @@ router.post("/create-appointment/:id", isLoggedIn, async (req, res, next) => {
 /* Delete Appointment */
 
 
+router.get("/delete-appointment/:id", async (req, res, next) => {
+  try {
+    await Appointment.findByIdAndRemove(req.params.id);
+    res.redirect("/psychologist");
+  } catch (err) {
+    console.log("err", err);
+  }
+});
+
 module.exports = router;

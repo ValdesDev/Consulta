@@ -43,6 +43,7 @@ const appointment = require("./routes/appointment.routes");
 app.use("/",appointment);
 
 
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

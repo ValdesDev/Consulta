@@ -54,12 +54,6 @@
 
 <script>
   window.addEventListener('DOMContentLoaded', event => {
-   /* var events = [{
-        startDate: new Date(),
-        endDate:new Date(),
-        summary: "cita presencial"
-    }]
-    */
     var decodedJson = decodeURIComponent("{{{this.appointments}}}");
     var databaseEvents =JSON.parse(decodedJson);
     console.log(databaseEvents);
@@ -75,8 +69,6 @@
     });
 
     $("#container").simpleCalendar({
-        //Defaults options below
-        //string of months starting from january
         months: ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
         days: ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'],
         displayYear: true,              // Display year in header

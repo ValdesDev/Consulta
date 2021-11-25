@@ -268,7 +268,7 @@
             ' <div class="event-summary">' +
             event.summary +
             "</div>" +
-            `<a class='event-delete' href='/event-delete/${event.id}'><button class='btn btn-danger'><i class='fa fa-trash'></i></button></a>` +
+            `<a class='event-delete' href='/delete-appointment/${event.id}'><button class='btn btn-danger'><i class='fa fa-trash'></i></button></a>` +
             "</div>"
         );
 
