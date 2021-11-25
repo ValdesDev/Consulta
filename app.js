@@ -42,6 +42,8 @@ app.use("/",client);
 const appointment = require("./routes/appointment.routes");
 app.use("/",appointment);
 
+const contact = require("./routes/contact.routes");
+app.use("/",contact);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

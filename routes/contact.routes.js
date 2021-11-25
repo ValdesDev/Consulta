@@ -1,3 +1,4 @@
+const router = require("express").Router();
 const nodemailer = require("nodemailer");
 const smtpTransport = require("nodemailer-smtp-transport");
 const myMail = process.env.EMAIL;
@@ -30,3 +31,5 @@ router.post("/contact-mail/", async (req, res, next) => {
     next(err);
   }
 });
+
+module.exports = router;
