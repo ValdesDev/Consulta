@@ -1,8 +1,8 @@
-<div class="card col-4 m-3">
+<div class="card col-sm-6 col-md-4 m-3">
   <div class="card-body">
     <div class="row">
       <h5 class="card-title col-8">{{this.name}} {{this.lastName}}</h5>
-      <div class="col-4 text-end">
+      <div class="col-md-4 text-end">
         <a href="/toggle-client/{{this._id}}/{{this.active}}">
           <button type="button" class="btn btn-outline-info btn-sm">
             {{#if this.active}}
@@ -20,7 +20,7 @@
         Activo
       {{else}}
         Inactivo
-      {{/if}}
+      {{/if}} 
     </h6>
 
     <p class="card-text">

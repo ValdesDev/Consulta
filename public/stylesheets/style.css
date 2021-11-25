@@ -39,7 +39,6 @@ form input{
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
-    padding: 60px;
 }
 
 .form-content .form-items {
@@ -48,7 +47,6 @@ form input{
     padding: 40px;
     display: inline-block;
     width: 100%;
-    min-width: 540px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;

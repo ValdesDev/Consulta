@@ -10,6 +10,8 @@ const Psychologist = require("../models/Psychologist.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+/* Create new Psychologist */
+
 router.get("/psychologist", isLoggedIn, async (req, res) => {
   const user = req.session.user;
   const loggedPsychologist = await Psychologist.findById(user._id)

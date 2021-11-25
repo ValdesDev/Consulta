@@ -38,7 +38,7 @@ router.post("/create-client/:id", async (req, res, next) => {
 router.post("/modify-client/:id", async (req, res, next) => {
   try {
     await Client.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect("/psychologist");
+    res.redirect("/psychologist/archive");
   } catch (err) {
     console.log("err", err);
   }
@@ -73,7 +73,7 @@ router.get("/deactivate-client/:id/", async (req, res, next) => {
 router.post("/delete-client/:id", async (req, res, next) => {
   try {
     await Client.findByIdAndRemove(req.params.id);
-    res.redirect("/psychologist");
+    res.redirect("/psychologist/archive");
   } catch (err) {
     console.log("err", err);
   }
