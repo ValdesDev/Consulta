@@ -11802,7 +11802,7 @@ header.masthead {
   background-image: url("../images/agenda-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
+  background-position: top center;
   background-size: cover;
   /* position: absolute; */
   width: 100%;
