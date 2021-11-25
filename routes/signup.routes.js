@@ -47,7 +47,7 @@ router.post("/signup", isLoggedOut, async (req, res) => {
       presentation
     });
     req.session.user = createdUser;
-    res.redirect("/psychologist"); //revisar ruta
+    res.redirect("/psychologist"); 
     
   } catch (err) {
     console.log(err);

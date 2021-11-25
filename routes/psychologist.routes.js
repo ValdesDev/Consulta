@@ -45,9 +45,10 @@ router.get("/psychologist/archive", isLoggedIn, async (req, res) => {
 router.post("/modify-psychologist", async (req, res, next) => {
   const user = req.session.user;
   const modifiedUser = req.body;
-  const salt = await bcrypt.genSalt(saltRounds);
-  modifiedUser.password = await bcrypt.hash(modifiedUser.password, salt);
-  console.log( "======>",modifiedUser);
+  if (modifiedUser.password) {
+    const salt = await bcrypt.genSalt(saltRounds);
+    modifiedUser.password = await bcrypt.hash(modifiedUser.password, salt);
+  }
   try {
     await Psychologist.findByIdAndUpdate(user._id, modifiedUser);
     res.redirect("/psychologist/archive");
