@@ -23,8 +23,6 @@
               value={{this.name}}
               required
             />
-            <div class="valid-feedback">Username field is valid!</div>
-            <div class="invalid-feedback">Username field cannot be blank!</div>
           </div>
           <div class="col-md-12">
             <input
@@ -35,8 +33,6 @@
               required
               value={{this.lastName}}
             />
-            <div class="valid-feedback">Username field is valid!</div>
-            <div class="invalid-feedback">Username field cannot be blank!</div>
           </div>
           <div class="col-md-12">
             <input
@@ -46,8 +42,6 @@
               placeholder="Segundo Apellido (no obligatorio)"
               value={{this.lastName2}}
             />
-            <div class="valid-feedback">Username field is valid!</div>
-            <div class="invalid-feedback">Username field cannot be blank!</div>
           </div>
           <div class="col-md-12">
             <input
@@ -56,9 +50,9 @@
               name="age"
               placeholder="Edad"
               value={{this.age}}
+              min=2
+              max=99
             />
-            <div class="valid-feedback">Username field is valid!</div>
-            <div class="invalid-feedback">Username field cannot be blank!</div>
           </div>
           <div class="col-md-12">
             <input
@@ -69,8 +63,6 @@
               required
               value={{this.email}}
             />
-            <div class="valid-feedback">Email field is valid!</div>
-            <div class="invalid-feedback">Email field cannot be blank!</div>
           </div>
           <div class="col-md-12">
             <input
@@ -81,8 +73,6 @@
               required
               value={{this.phone}}
             />
-            <div class="valid-feedback">Password field is valid!</div>
-            <div class="invalid-feedback">Password field cannot be blank!</div>
           </div>
 
         </div>
