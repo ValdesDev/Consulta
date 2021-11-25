@@ -54,7 +54,7 @@
         de la App</h2>
       <h3 class="section-subheading text-white">Estamos encantados de escuchar tus sugerencias.</h3>
     </div>
-    <form id="contactForm">
+    <form id="contactForm" action="/contact-mail/" method="POST">
       <div class="row align-items-stretch mb-5">
         <div class="col-md-6">
           <div class="form-group">
@@ -64,10 +64,8 @@
               id="name"
               type="text"
               placeholder="Tu Nombre *"
-              data-sb-validations="required"
+              required
             />
-            <div class="invalid-feedback" data-sb-feedback="name:required">A
-              name is required.</div>
           </div>
           <div class="form-group">
             <!-- Email address input-->
@@ -76,12 +74,8 @@
               id="email"
               type="email"
               placeholder="Tu Email *"
-              data-sb-validations="required,email"
+              required
             />
-            <div class="invalid-feedback" data-sb-feedback="email:required">An
-              email is required.</div>
-            <div class="invalid-feedback" data-sb-feedback="email:email">Email
-              is not valid.</div>
           </div>
           <div class="form-group mb-md-0">
             <!-- Phone number input-->
@@ -89,11 +83,8 @@
               class="form-control"
               id="phone"
               type="tel"
-              placeholder="Tu Teléfono *"
-              data-sb-validations="required"
+              placeholder="Tu Teléfono"
             />
-            <div class="invalid-feedback" data-sb-feedback="phone:required">A
-              phone number is required.</div>
           </div>
         </div>
         <div class="col-md-6">
@@ -103,37 +94,14 @@
               class="form-control"
               id="message"
               placeholder="Tu Mensaje *"
-              data-sb-validations="required"
+              required
             ></textarea>
-            <div class="invalid-feedback" data-sb-feedback="message:required">A
-              message is required.</div>
           </div>
         </div>
       </div>
-      <!-- Submit success message-->
-      <!---->
-      <!-- This is what your users will see when the form-->
-      <!-- has successfully submitted-->
-      <div class="d-none" id="submitSuccessMessage">
-        <div class="text-center text-white mb-3">
-          <div class="fw-bolder">Form submission successful!</div>
-          To activate this form, sign up at
-          <br />
-          <a
-            href="https://startbootstrap.com/solution/contact-forms"
-          >https://startbootstrap.com/solution/contact-forms</a>
-        </div>
-      </div>
-      <!-- Submit error message-->
-      <!---->
-      <!-- This is what your users will see when there is-->
-      <!-- an error submitting the form-->
-      <div class="d-none" id="submitErrorMessage"><div
-          class="text-center text-danger mb-3"
-        >Error sending message!</div></div>
       <!-- Submit Button-->
       <div class="text-center"><button
-          class="btn btn-primary btn-xl text-uppercase disabled"
+          class="btn btn-primary btn-xl text-uppercase"
           id="submitButton"
           type="submit"
         >Enviar Mensaje</button></div>

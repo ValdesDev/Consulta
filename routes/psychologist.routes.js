@@ -10,7 +10,7 @@ const Psychologist = require("../models/Psychologist.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-/* Create new Psychologist */
+/* View Psychologist */
 
 router.get("/psychologist", isLoggedIn, async (req, res) => {
   const user = req.session.user;
@@ -44,8 +44,12 @@ router.get("/psychologist/archive", isLoggedIn, async (req, res) => {
 
 router.post("/modify-psychologist", async (req, res, next) => {
   const user = req.session.user;
+  const modifiedUser = req.body;
+  const salt = await bcrypt.genSalt(saltRounds);
+  modifiedUser.password = await bcrypt.hash(modifiedUser.password, salt);
+  console.log( "======>",modifiedUser);
   try {
-    await Psychologist.findByIdAndUpdate(user._id, req.body);
+    await Psychologist.findByIdAndUpdate(user._id, modifiedUser);
     res.redirect("/psychologist/archive");
   } catch (err) {
     console.log("err", err);

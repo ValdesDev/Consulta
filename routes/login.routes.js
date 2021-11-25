@@ -7,9 +7,13 @@ const Psychologist = require("../models/Psychologist.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 
+
+/* LOGIN */
+
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
+
 
 router.post("/login", isLoggedOut, async (req, res) => {
   const { email, password } = req.body;
@@ -37,6 +41,8 @@ router.post("/login", isLoggedOut, async (req, res) => {
     next(err);
   }
 });
+
+/* LOGOUT */
 
 router.post("/logout", isLoggedIn, async (req, res, next) => {
   res.clearCookie("connect.sid", { path: "/" }); //REVISAR
