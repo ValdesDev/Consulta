@@ -19,7 +19,7 @@ const clientSchema = new Schema(
       lowercase: true,
       match: [/\S+@\S+\.\S+/, "Email not valid"],
     },
-    phone: { type: Number, unique: true,match:[/^[679]{1}[0-9]{8}$/ ,"Number not valid"] },
+    phone: { type: Number,match:[/^[679]{1}[0-9]{8}$/ ,"Number not valid"] },
   },
   {
     timestamps: true,
