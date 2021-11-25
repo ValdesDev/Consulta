@@ -2,31 +2,22 @@
   
   <div class="row psico-nav">
     <div class="col-md-8">
-      <div class="row" > 
-        <div class="col-md-5">
-          <h2>Archivo de {{this.name}}</h2>
-
-        </div>
-        <div class="col-md-2">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#modifyPsyModal"
-            >
+      <h2>Archivo de {{this.name}}
+        <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#modifyPsyModal">
         <i class="fas fa-edit"></i>
-          </button>
-          <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#deletePsyModal"
-        >
+      </button>
+      <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#deletePsyModal">
         <i class="fas fa-times"></i>
-          </button>  
-
-        </div>
-      </div>
+      </button>
+      </h2>
     </div>
 
     <div class="col-md-4">
@@ -35,8 +26,7 @@
         type="button"
         class="btn btn-primary"
         data-toggle="modal"
-        data-target="#createClientModal"
-      >
+        data-target="#createClientModal">
         <i class="fas fa-user-plus"></i>
         Crear Cliente
       </button>
@@ -66,7 +56,7 @@
   {{/deletePsy}}
 
   <!--CLient Cards -->
-  <div class="row">
+  <div class="row justify-content-center">
     {{#if this.clients}}
       {{#each this.clients}}
 
