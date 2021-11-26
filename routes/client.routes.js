@@ -30,6 +30,7 @@ router.post("/create-client/:id", async (req, res, next) => {
     }
   } catch (err) {
     console.log(err);
+    res.redirect("/psychologist/archive");
   }
 });
 
